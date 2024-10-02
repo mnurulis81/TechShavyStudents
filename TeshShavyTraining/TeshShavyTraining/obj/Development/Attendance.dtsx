@@ -11,16 +11,16 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Attendance"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{E4CF0B3C-A04D-4E5A-AF5E-2DB77623991D}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{E82CF260-F0CE-478D-B138-5835C9D68985}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[Conn_FlatFile]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{05436557-1E7D-4B94-9C49-E9EBAA688A41}"
-      DTS:ObjectName="Flat File Connection Manager">
+      DTS:ObjectName="Conn_FlatFile">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::FullFilePath]</DTS:PropertyExpression>
       <DTS:ObjectData>
@@ -33,7 +33,7 @@
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
           DTS:AlwaysCheckForRowDelimiters="False"
-          DTS:ConnectionString="E:\TechShavyStudents\TeshShavyTraining\Input\Batch110\Batch110_20240930.csv">
+          DTS:ConnectionString="E:\TechShavyStudents\TeshShavyTraining\Input\Batch111\Batch110_20240930.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,10 +112,10 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[MNURULIS\SQLEXPRESS.TechShavyStudents]"
+      DTS:refId="Package.ConnectionManagers[Conn_TechShavyStudents]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{3D095678-09B3-4478-BD00-9F898FDAE3EA}"
-      DTS:ObjectName="MNURULIS\SQLEXPRESS.TechShavyStudents">
+      DTS:ObjectName="Conn_TechShavyStudents">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -139,13 +139,11 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{9801271E-4B21-40D3-82E8-9C28DA382C07}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="Left(@[User::FileName],8)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="BatchNo">
       <DTS:VariableValue
-        DTS:DataType="8">Batch110</DTS:VariableValue>
+        DTS:DataType="8">Batch111</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -185,7 +183,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FullFilePath">
       <DTS:VariableValue
-        DTS:DataType="8">E:\TechShavyStudents\TeshShavyTraining\Input\Batch110\Batch110_20240930.csv</DTS:VariableValue>
+        DTS:DataType="8">E:\TechShavyStudents\TeshShavyTraining\Input\Batch111\Batch110_20240930.csv</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -206,7 +204,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="E:\TechShavyStudents\TeshShavyTraining\Input\Batch110\" />
+              Folder="E:\TechShavyStudents\TeshShavyTraining\Input\Batch111\" />
             <FEFEProperty
               FileSpec="Batch*.csv" />
             <FEFEProperty
@@ -373,8 +371,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Load_Attendance Table\Flat File Source.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerID="Package.ConnectionManagers[Conn_FlatFile]"
+                      connectionManagerRefId="Package.ConnectionManagers[Conn_FlatFile]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -677,8 +675,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Load_Attendance Table\TechShavyTraining.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[MNURULIS\SQLEXPRESS.TechShavyStudents]"
-                      connectionManagerRefId="Package.ConnectionManagers[MNURULIS\SQLEXPRESS.TechShavyStudents]"
+                      connectionManagerID="Package.ConnectionManagers[Conn_TechShavyStudents]"
+                      connectionManagerRefId="Package.ConnectionManagers[Conn_TechShavyStudents]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -888,8 +886,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{F5AC6ADF-1FC0-44BD-AC8B-E93FA3A949FE}"
-          DTS:ObjectName="{F5AC6ADF-1FC0-44BD-AC8B-E93FA3A949FE}"
+          DTS:DTSID="{345FA83F-6A9A-443D-A3C3-0055FF881D0F}"
+          DTS:ObjectName="{345FA83F-6A9A-443D-A3C3-0055FF881D0F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -908,13 +906,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="196,42"
-          Id="Package\Foreach Loop Container\Load_Attendance Table"
-          TopLeft="30.5,48" />
-        <NodeLayout
           Size="163,42"
           Id="Package\Foreach Loop Container\File System Task"
           TopLeft="42,201" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Foreach Loop Container\Load_Attendance Table"
+          TopLeft="30.5,48" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           TopLeft="126,90">
